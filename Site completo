@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Corinthians - História e Conquistas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --fg: #111111;
+      --accent: #000000;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      font-size: 18px;
+    }
+
+    header {
+      background: var(--accent);
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      padding: 1rem;
+      background: #eee;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--accent);
+      font-weight: bold;
+    }
+
+    section {
+      max-width: 900px;
+      margin: auto;
+      padding: 2rem;
+    }
+
+    h2 {
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 0.5rem;
+      margin-top: 2rem;
+    }
+
+    /* Botões de acessibilidade */
+    #acessibilidade {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background: #222;
+      color: #fff;
+      padding: 10px;
+      border-radius: 8px;
+      display: flex;
+      gap: 5px;
+      flex-wrap: wrap;
+    }
+
+    #acessibilidade button {
+      background: #fff;
+      color: #000;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    #acessibilidade button:hover {
+      background: #ddd;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Sport Club Corinthians Paulista</h1>
+    <p>"O Todo Poderoso Timão"</p>
+  </header>
+
+  <!-- Menu de Acessibilidade -->
+  <div id="acessibilidade" aria-label="Menu de acessibilidade">
+    <button onclick="aumentarFonte()">A+</button>
+    <button onclick="diminuirFonte()">A-</button>
+    <button onclick="contraste()">Contraste</button>
+    <button onclick="resetar()">Resetar</button>
+  </div>
+
+  <nav>
+    <a href="#historia">História</a>
+    <a href="#jogadores">Melhores Jogadores</a>
+    <a href="#conquistas">Conquistas</a>
+    <a href="#curiosidades">Curiosidades</a>
+  </nav>
+
+  <section id="historia">
+    <h2>História</h2>
+    <p>O Sport Club Corinthians Paulista foi fundado em 1º de setembro de 1910, no bairro do Bom Retiro, em São Paulo. Inspirado em clubes ingleses, rapidamente conquistou popularidade entre as classes trabalhadoras. Conhecido como "Timão", o clube se tornou um dos mais populares do Brasil e do mundo, com uma das maiores torcidas organizadas.</p>
+    <p>O Corinthians tem como estádio a Neo Química Arena, localizada em Itaquera, que foi palco da abertura da Copa do Mundo de 2014.</p>
+  </section>
+
+  <section id="jogadores">
+    <h2>Melhores Jogadores</h2>
+    <ul>
+      <li>Sócrates – Ídolo da "Democracia Corinthiana" nos anos 80.</li>
+      <li>Ronaldo Fenômeno – Conquistou o Campeonato Paulista de 2009.</li>
+      <li>Rivelino – Um dos maiores talentos do futebol brasileiro.</li>
+      <li>Cássio – Goleiro heróico da Libertadores e Mundial de 2012.</li>
+      <li>Neto – Ícone dos anos 90, conhecido por sua liderança e técnica.</li>
+    </ul>
+  </section>
+
+  <section id="conquistas">
+    <h2>Principais Conquistas</h2>
+    <ul>
+      <li>2 Mundiais de Clubes da FIFA (2000 e 2012)</li>
+      <li>1 Copa Libertadores da América (2012)</li>
+      <li>7 Campeonatos Brasileiros (1990, 1998, 1999, 2005, 2011, 2015, 2017)</li>
+      <li>3 Copas do Brasil (1995, 2002, 2009)</li>
+      <li>30 Campeonatos Paulistas</li>
+    </ul>
+  </section>
+
+  <section id="curiosidades">
+    <h2>Curiosidades</h2>
+    <p>O mascote do Corinthians é o Mosqueteiro, simbolizando bravura e união. O clube também é famoso por sua torcida fiel, conhecida como "Fiel Torcida", que sempre lota estádios e empurra o time em qualquer situação.</p>
+  </section>
+
+  <script>
+    let tamanhoFonte = 18;
+    let contrasteAtivo = false;
+
+    function aumentarFonte() {
+      tamanhoFonte += 2;
+      document.body.style.fontSize = tamanhoFonte + "px";
+    }
+
+    function diminuirFonte() {
+      if (tamanhoFonte > 12) {
+        tamanhoFonte -= 2;
+        document.body.style.fontSize = tamanhoFonte + "px";
+      }
+    }
+
+    function contraste() {
+      if (!contrasteAtivo) {
+        document.documentElement.style.setProperty('--bg', '#000');
+        document.documentElement.style.setProperty('--fg', '#fff');
+        document.documentElement.style.setProperty('--accent', '#fff');
+        contrasteAtivo = true;
+      } else {
+        document.documentElement.style.setProperty('--bg', '#fff');
+        document.documentElement.style.setProperty('--fg', '#111');
+        document.documentElement.style.setProperty('--accent', '#000');
+        contrasteAtivo = false;
+      }
+    }
+
+    function resetar() {
+      tamanhoFonte = 18;
+      document.body.style.fontSize = tamanhoFonte + "px";
+      document.documentElement.style.setProperty('--bg', '#fff');
+      document.documentElement.style.setProperty('--fg', '#111');
+      document.documentElement.style.setProperty('--accent', '#000');
+      contrasteAtivo = false;
+    }
+  </script>
+</body>
+</html>
